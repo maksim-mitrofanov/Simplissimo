@@ -31,3 +31,9 @@
     
 ## Tech Used
     - Core Data
+
+
+# To DO
+
+    - Extract Recipe Card View Preview (basically Recipe View) into a struct ✅
+    - struct Ingredient (text, color, emoji, quantity)

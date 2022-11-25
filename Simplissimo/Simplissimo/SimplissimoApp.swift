@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 @main
 struct SimplissimoApp: App {
+    @State var carbonaraRecipe = RecipeData.carbonara
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            RecipeFullScreenView(recipe: $carbonaraRecipe)
         }
     }
 }

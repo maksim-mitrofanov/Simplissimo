@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C01AB182924D36400C1729C /* EditRecipeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C01AB172924D36400C1729C /* EditRecipeSheetView.swift */; };
+		4C104132292CC92E009F000C /* EditSingleIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C104131292CC92E009F000C /* EditSingleIngredientView.swift */; };
+		4C22715A2923D2330059EBEE /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2271592923D2330059EBEE /* RecipeCardView.swift */; };
+		4C22715C2923F0D10059EBEE /* RecipeFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22715B2923F0D10059EBEE /* RecipeFullScreenView.swift */; };
+		4C22715F2923F67D0059EBEE /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 4C22715E2923F67D0059EBEE /* WrappingHStack */; };
+		4C2271612924143E0059EBEE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2271602924143E0059EBEE /* Extensions.swift */; };
+		4C227164292415C40059EBEE /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C227163292415C40059EBEE /* RecipeData.swift */; };
+		4C387AA229252766005D9F2A /* SingleIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C387AA129252766005D9F2A /* SingleIngredientView.swift */; };
+		4C387AA529252E52005D9F2A /* IngredientsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C387AA429252E52005D9F2A /* IngredientsStack.swift */; };
 		4CF229BA2923974E004E8117 /* SimplissimoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF229B92923974E004E8117 /* SimplissimoApp.swift */; };
 		4CF229BC2923974E004E8117 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF229BB2923974E004E8117 /* HomeView.swift */; };
 		4CF229BE2923974F004E8117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF229BD2923974F004E8117 /* Assets.xcassets */; };
@@ -14,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C01AB172924D36400C1729C /* EditRecipeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeSheetView.swift; sourceTree = "<group>"; };
+		4C104131292CC92E009F000C /* EditSingleIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSingleIngredientView.swift; sourceTree = "<group>"; };
+		4C2271592923D2330059EBEE /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
+		4C22715B2923F0D10059EBEE /* RecipeFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFullScreenView.swift; sourceTree = "<group>"; };
+		4C2271602924143E0059EBEE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4C227163292415C40059EBEE /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		4C387AA129252766005D9F2A /* SingleIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIngredientView.swift; sourceTree = "<group>"; };
+		4C387AA429252E52005D9F2A /* IngredientsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsStack.swift; sourceTree = "<group>"; };
 		4CF229B62923974E004E8117 /* Simplissimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simplissimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF229B92923974E004E8117 /* SimplissimoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplissimoApp.swift; sourceTree = "<group>"; };
 		4CF229BB2923974E004E8117 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -27,12 +44,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C22715F2923F67D0059EBEE /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C227162292415830059EBEE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CF229BB2923974E004E8117 /* HomeView.swift */,
+				4C22715B2923F0D10059EBEE /* RecipeFullScreenView.swift */,
+				4C01AB172924D36400C1729C /* EditRecipeSheetView.swift */,
+				4C104131292CC92E009F000C /* EditSingleIngredientView.swift */,
+				4C387AA32925276C005D9F2A /* UI Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4C227165292415C90059EBEE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4C227163292415C40059EBEE /* RecipeData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4C387AA32925276C005D9F2A /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				4C387AA129252766005D9F2A /* SingleIngredientView.swift */,
+				4C2271592923D2330059EBEE /* RecipeCardView.swift */,
+				4C387AA429252E52005D9F2A /* IngredientsStack.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
 		4CF229AD2923974E004E8117 = {
 			isa = PBXGroup;
 			children = (
@@ -53,10 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				4CF229B92923974E004E8117 /* SimplissimoApp.swift */,
-				4CF229BB2923974E004E8117 /* HomeView.swift */,
 				4CF229C729239973004E8117 /* NOTES.md */,
-				4CF229BD2923974F004E8117 /* Assets.xcassets */,
+				4C227162292415830059EBEE /* Views */,
+				4C227165292415C90059EBEE /* Data */,
 				4CF229BF2923974F004E8117 /* Preview Content */,
+				4CF229BD2923974F004E8117 /* Assets.xcassets */,
+				4C2271602924143E0059EBEE /* Extensions.swift */,
 			);
 			path = Simplissimo;
 			sourceTree = "<group>";
@@ -85,6 +135,9 @@
 			dependencies = (
 			);
 			name = Simplissimo;
+			packageProductDependencies = (
+				4C22715E2923F67D0059EBEE /* WrappingHStack */,
+			);
 			productName = Simplissimo;
 			productReference = 4CF229B62923974E004E8117 /* Simplissimo.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +166,9 @@
 				Base,
 			);
 			mainGroup = 4CF229AD2923974E004E8117;
+			packageReferences = (
+				4C22715D2923F67D0059EBEE /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = 4CF229B72923974E004E8117 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C104132292CC92E009F000C /* EditSingleIngredientView.swift in Sources */,
+				4C2271612924143E0059EBEE /* Extensions.swift in Sources */,
+				4C387AA529252E52005D9F2A /* IngredientsStack.swift in Sources */,
 				4CF229BC2923974E004E8117 /* HomeView.swift in Sources */,
 				4CF229BA2923974E004E8117 /* SimplissimoApp.swift in Sources */,
+				4C387AA229252766005D9F2A /* SingleIngredientView.swift in Sources */,
+				4C01AB182924D36400C1729C /* EditRecipeSheetView.swift in Sources */,
+				4C227164292415C40059EBEE /* RecipeData.swift in Sources */,
+				4C22715A2923D2330059EBEE /* RecipeCardView.swift in Sources */,
+				4C22715C2923F0D10059EBEE /* RecipeFullScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C22715D2923F67D0059EBEE /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C22715E2923F67D0059EBEE /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C22715D2923F67D0059EBEE /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4CF229AE2923974E004E8117 /* Project object */;
 }
