@@ -9,12 +9,18 @@ import SwiftUI
 import WrappingHStack
 
 @main
-struct SimplissimoApp: App {
-    @State var carbonaraRecipe = RecipeData.carbonara
-    
+struct SimplissimoApp: App {    
     var body: some Scene {
         WindowGroup {
-            RecipeFullScreenView(recipe: $carbonaraRecipe)
+            HomeView()
+                .preferredColorScheme(.light)
+                .onAppear {
+                    for familyName in UIFont.familyNames {
+                        for font in UIFont.fontNames(forFamilyName: familyName) {
+                            print("-- Family: \(familyName). Font: \(font)")
+                        }
+                    }
+                }
         }
     }
 }

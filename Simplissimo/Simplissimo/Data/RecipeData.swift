@@ -8,32 +8,41 @@
 import Foundation
 import SwiftUI
 
-struct RecipeIngredient: Hashable {
+
+struct RecipeData {
+    var name: String
+    var description: String = ""
+    var image: Image
+    var isFavourite = false
+    var ingredients: [RecipeIngredient]
+    var stages: [RecipeCookingStage]
+    
+    //MARK: -Temporary
+    var expectedPreparationTimeInMinutes: Int = 30
+    var totalTimeInMinutes: Int = 60
+}
+
+struct RecipeIngredient: Hashable, Identifiable {
     var text: String
     var color: Color
     var emoji: String = ""
     var quantity: String = ""
+    
+    let id: String = UUID().uuidString
 }
 
-extension RecipeIngredient {
-    static let emptyIngredient = RecipeIngredient(text: "", color: .gray.opacity(0.2))
-}
-
-enum RecipeStepType {
-    case mainText, suggestion
-}
-
-struct RecipeStep: Hashable {
+struct RecipeStep: Hashable, Identifiable {
     var text: String
-    var type: RecipeStepType
+    var type: RecipeStepType = .mainText
+    
+    let id: String = UUID().uuidString
 }
 
-struct RecipeData {
-    var name: String
-    var image: Image
-    var isFavourite = false
-    var ingredients: [RecipeIngredient]
+struct RecipeCookingStage: Hashable, Identifiable {
+    var title: String
     var steps: [RecipeStep]
+    
+    let id: String = UUID().uuidString
 }
 
 
@@ -68,16 +77,73 @@ extension RecipeData {
             )
         ],
         
-        steps: [
-            RecipeStep(text: "Fry bacon over low heat", type: .mainText),
-            RecipeStep(text: "Boil pasta in salty water till al dente", type: .mainText),
-            RecipeStep(text: "(1 minute less then what the package says)", type: .suggestion),
-            RecipeStep(text: "While pasta is cooking, grate parmesan cheese and mix it with one egg yolk", type: .mainText),
-            RecipeStep(text: "you can use the egg white in another recipe", type: .suggestion),
-            RecipeStep(text: "When pasta is ready, use tongs to transfer pasta directly into pan with bacon", type: .mainText),
-            RecipeStep(text: "add some pasta water to the pan if necessary", type: .suggestion),
-            RecipeStep(text: "Kill the heat and add your cheese mixture to the pan", type: .mainText),
-            RecipeStep(text: "Stir the pasta, so the egg doesn't curdle", type: .suggestion),
-            RecipeStep(text: "If the eggs are runny, turn on low heat for a few seconds, keep stirring", type: .mainText)
+        stages: [
+            RecipeCookingStage(
+                title: "Making egg and cheese mixture",
+                steps: [
+                    RecipeStep(text: "Separate egg yolks from egg whites."),
+                    RecipeStep(text: "Grate parmesan cheese and mix well with egg yolks, until homogenous")
+                ]),
+            
+            RecipeCookingStage(
+                title: "Frying bacon and boiling pasta",
+                steps: [
+                    RecipeStep(text: "Cut bacon into small chunks, fry over low heat, so more fat renders."),
+                    RecipeStep(text: "Cook pasta in salty water till al dente (usually 1 minute less then what the package says).")
+                ]),
+            
+            RecipeCookingStage(
+                title: "Final assembly",
+                steps: [
+                    RecipeStep(text: "Transfer pasta from the pot directly into pan with bacon, add a few table spoons of pasta water, then mix well."),
+                    RecipeStep(text: "Add egg mixture into the pan, whisk constantly."),
+                    RecipeStep(text: "If the egg mixture is too runny, use low heat, but don't stop whisking."),
+                    RecipeStep(text: "Remember to kill the heat before the egg mixture is fully cooked, as residual heat from the pan will cook it more.")
+                ])
             ])
+            
+
+    
+    static let cinnamonRolls =
+    RecipeData(
+        name: "Cinnamon Rolls With Cream",
+        description: "With cream and caramel topping",
+        image: Image("Demo_Image_CinnamonRolls"),
+        ingredients: [
+            RecipeIngredient(text: "flour", color: .white),
+            RecipeIngredient(text: "sugar", color: .blue.opacity(0.5)),
+            RecipeIngredient(text: "salt", color: .orange.opacity(0.5)),
+            RecipeIngredient(text: "milk", color: .green.opacity(0.5), emoji: "🥛"),
+            RecipeIngredient(text: "butter", color: .orange.opacity(0.5), emoji: "🧈"),
+            RecipeIngredient(text: "eggs", color: .green.opacity(0.5), emoji: "🥚"),
+        ],
+        
+        stages: [
+            RecipeCookingStage(title: "Dought", steps: [RecipeStep(text: "")]),
+            RecipeCookingStage(title: "Cinnamon & sugar filling", steps: [RecipeStep(text: "")]),
+            RecipeCookingStage(title: "Rolling & baking", steps: [RecipeStep(text: "")])
+        ]
+    )
+}
+
+
+
+extension RecipeIngredient {
+    static let emptyIngredient = RecipeIngredient(text: "", color: .gray.opacity(0.2))
+}
+
+enum RecipeStepType {
+    case mainText, suggestion
+}
+
+
+extension RecipeIngredient {
+    enum quantityType: String {
+        case grams
+        case liters
+        case milligrams
+        case milliliters
+        case tablespoons
+        case teaspoons
+    }
 }

@@ -19,16 +19,16 @@ struct EditRecipeSheetView: View {
     
     //Selecting Image
     @State private var selectedItem: PhotosPickerItem? = nil
-        
+    
     //Drawing Constants
     private let cornerRadius: CGFloat = 20
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            editRecipeNameView
             editRecipeImageView
+            editRecipeNameView
             editIngredientsListView
-            editRecipeStepsView
+//            editRecipeStepsView
         }
         .padding()
         .onChange(of: selectedItem, perform: updateRecipeImage(newItem:))
@@ -57,7 +57,7 @@ struct EditRecipeSheetView: View {
     var editRecipeImageView: some View {
         VStack(alignment: .leading) {
             Text("Recipe Image: ").font(.title2).bold()
-            RecipeCardView(recipe: recipe)
+//            RecipeCardView(recipe: recipe)
             PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
                 RoundedRectangle(cornerRadius: cornerRadius - 5)
                     .aspectRatio(7/1, contentMode: .fit)
@@ -97,7 +97,7 @@ struct EditRecipeSheetView: View {
                     .overlay {
                         deleteRecipeOverlay
                             .disabled(isEditingIngredients ? false : true)
-
+                        
                             .onTapGesture {
                                 withAnimation {
                                     deleteTappedIngredient(ingredient: ingredient)
@@ -159,38 +159,48 @@ struct EditRecipeSheetView: View {
         .offset(x: 8, y: -8)
     }
     
-    var editRecipeStepsView: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                Text("Steps: ")
-                    .font(.title2).bold()
-                    .fontDesign(.rounded)
-                    .padding(.bottom)
-                
-                ForEach(recipe.steps, id: \.self) { stepData in
-                    if stepData.type == .mainText {
-                        Text("- " + stepData.text)
-                            .font(.body)
-                            .foregroundColor(Color(uiColor: .label))
-                    }
-                    else {
-                        Text(stepData.text)
-                            .font(.callout)
-                            .foregroundColor(Color(uiColor: .secondaryLabel))
-                            .padding(.bottom, 10)
-                            .padding(.horizontal, 10)
-                    }
-                }
-            }
-           Spacer()
-        }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.ultraThickMaterial)
-        }
-    }
+//    var editRecipeStepsView: some View {
+//        HStack(alignment: .top) {
+//            VStack(alignment: .leading) {
+//                Text("Steps: ")
+//                    .font(.title2).bold()
+//                    .fontDesign(.rounded)
+//                    .padding(.bottom)
+//
+//                ForEach(recipe.steps, id: \.self) { stepData in
+//                    if stepData.type == .mainText {
+//                        Text("- " + stepData.text)
+//                            .font(.body)
+//                            .foregroundColor(Color(uiColor: .label))
+//                    }
+//                    else {
+//                        Text(stepData.text)
+//                            .font(.callout)
+//                            .foregroundColor(Color(uiColor: .secondaryLabel))
+//                            .padding(.bottom, 10)
+//                            .padding(.horizontal, 10)
+//                    }
+//                }
+//            }
+//           Spacer()
+//        }
+//        .padding()
+//        .background {
+//            RoundedRectangle(cornerRadius: 20)
+//                .fill(.ultraThickMaterial)
+//        }
+//    }
     
+    var addCookingStepButton: some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "plus")
+                .font(.title2)
+        }
+        .offset(x: 5, y: -5)
+    }
+        
     func updateRecipeImage(newItem: PhotosPickerItem?) {
         Task {
             if let data = try? await newItem?.loadTransferable(type: Data.self) {
